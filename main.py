@@ -1,20 +1,24 @@
-# When the application is launched…
+import gi
+
+# Es fundamental especificar la versión ANTES de importar Gtk
+gi.require_version('Gtk', '4.0')
+from gi.repository import Gtk
+
+# Cuando la aplicación se inicia...
 def on_activate(app):
-    # … create a new window…
+    # ... crear una ventana nueva...
     win = Gtk.ApplicationWindow(application=app)
-    # … with a button in it…
-    btn = Gtk.Button(label='Hello, World!')
-    # … which closes the window when clicked
-    btn.connect('clicked', lambda x: win.close())
+    win.set_title("TUX ENGINER")
+    win.set_default_size(1600, 900)
+
+    # ... con un botón dentro...
+    btn = Gtk.Button(label='Bienvenido mai')
     win.set_child(btn)
     win.present()
 
-# Create a new application
-app = Gtk.Application(application_id='com.example.GtkApplication')
+# Crear la aplicación
+app = Gtk.Application(application_id='com.ejemplo.GtkApp')
 app.connect('activate', on_activate)
 
-# Run the application
+# Ejecutar la aplicación
 app.run(None)
-
-
-#este es un test para la app, en el sentido que es para probar la funcionalidad de la aplicacion y todas las herraminentas que se van a usar en el desarrollo de la aplicacion de Tux-Enginer
